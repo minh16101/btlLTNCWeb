@@ -1,0 +1,123 @@
+﻿body {
+}
+
+.back-add-detail {
+    position: absolute;
+    height: 100vh;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background-color: #835959;
+    opacity: 35%;
+    display: none;
+}
+
+.detail-add {
+    position: absolute;
+    width: 702px;
+    height: 500px;
+    top: calc(50% - 250px);
+    left: calc(50% - 350px);
+    right: 0;
+    bottom: 0;
+    border: 1px solid #835959;
+    border-radius: 3px;
+    background-color: #ffffff;
+    display: none;
+}
+
+    .detail-add .header-add {
+        width: 100%;
+        height: 30px;
+        background: #835959;
+    }
+
+        .detail-add .header-add .header-add-label {
+            color: #ffffff;
+            font-size: 18px;
+        }
+
+        .detail-add .header-add #exit-add-detail {
+            border: 1px solid #ffffff;
+            border-radius: 9px;
+            position: absolute;
+            right: 2px;
+            top: 2px;
+            height: 17px;
+            background-color: #ffffff;
+            color: #835959;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+    .detail-add .body-add {
+        width: 700px;
+        height: calc(100% - 61px);
+        background-color: #ffffff;
+        border: 1px solid #835959;
+    }
+
+        .detail-add .body-add .body-add-member label {
+            display: block;
+        }
+
+        .detail-add .body-add .body-add-member input {
+            padding: 3px;
+            margin-left: 1px;
+            margin-top: 1px;
+            margin-bottom: 5px;
+            border: 1px solid #808080;
+            height: 20px;
+        }
+
+            .detail-add .body-add .body-add-member input:focus {
+                border: 1px solid #ff0000;
+                outline: none;
+            }
+
+    .detail-add .footer-add {
+        height: 30px;
+        width: 100%;
+        border: 1px solid #808080;
+    }
+
+        .detail-add .footer-add #btnSave, #btnCan {
+            margin-left: 3px;
+            margin-top: 1px;
+        }
+
+.body-button {
+    width: 100%;
+    top: 20px;
+    left: 10px;
+    bottom: 10px;
+    right: 10px;
+    height: calc(100vh - 23px);
+}
+
+    .body-button .thead-body {
+        background-color: #423232;
+        color: #ffffff;
+    }
+
+    .body-button .tbody-body {
+        background-color: #835959;
+        color: #ffffff;
+    }
+
+table tbody tr:hover {
+    background-color: #e4bcbc;
+    cursor: pointer;
+}
+
+.required-error {
+    background-color: #b6ff00;
+}
+.row-selected {
+    background-color: #e4bcbc;
+}
+.disable-value {
+    background-color: #b5896a;
+    color: #ffffff;
+}

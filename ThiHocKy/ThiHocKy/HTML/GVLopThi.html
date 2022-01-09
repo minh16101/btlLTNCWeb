@@ -1,0 +1,121 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <link href="../CSS/Dashboard.css" rel="stylesheet" />
+    <link href="../CSS/GVlopthi.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="left-body">
+        <div class="header-menu">Trang chủ</div>
+        <div class="body-menu">
+            <ul class="menu">
+                <li>
+                    <a href="">Giáo vụ</a>
+                    <ul class="menu-down">
+                        <li><a href="GVLopHoc.html">Lớp Học</a></li>
+                        <li><a href="GVSinhVien.html">Sinh viên lớp học</a></li>
+                        <!--<li><a href="GVGiangVien.html">Giảng Viên Coi Thi</a></li>-->
+                        <li><a href="GVLopThi.html">Lớp Thi</a></li>
+                        <li><a href="">In danh sách sinh viên</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="">Giảng viên</a>
+                    <ul class="menu-down">
+                        <li><a href="">In danh sách sinh viên</a></li>
+                        <li><a href="">Xem lịch thi</a></li>
+                        <li><a href="">Lớp thi</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="">Sinh viên</a>
+                    <ul class="menu-down">
+                        <li><a href="">Xem lịch thi</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="right-body">
+        <div class="header-button">
+            <input id="btnAdd" type="button" value="Thêm" />
+            <input id="btnEdit" type="button" value="Sửa" />
+            <input id="btnDel" type="button" value="Xóa" />
+            <input id="btnShow" type="button" value="Hiển thị" />
+        </div>
+        <div class="body-button">
+            <table>
+                <thead class="thead-body">
+                    <tr>
+                        <th>Mã lớp thi</th>
+                        <th>Mã lớp học</th>
+                        <th>Tên lớp thi</th>
+                        <th>Số lượng giảng viên</th>
+                        <th>Mã Giảng viên 1</th>
+                        <th>Mã Giảng viên 2</th>
+                        <th>Thời gian</th>
+                        <th>Phòng thi</th>
+                        <th>Hình thức</th>
+                    </tr>
+                </thead>
+                <tbody class="tbody-body">
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <!--chi tiet them-->
+    <div class="back-add-detail"></div>
+    <div class="detail-add">
+        <div class="header-add">
+            <label class="header-add-label">Thông tin lớp thi</label>
+        </div>
+        <div class="body-add">
+            <div class="body-add-member">
+                <label>Mã Lớp thi</label>
+                <input id="MaLT" type="text" class='required' />
+            </div>
+            <div class="body-add-member">
+                <label>Mã Lớp học</label>
+                <input id="MaLH" type="text" class='required' />
+            </div>
+            <div class="body-add-member">
+                <label>Tên Lớp thi</label>
+                <input id="TenLT" type="text" class='required' />
+            </div>
+            <div class="body-add-member">
+                <label>Số cán bộ coi thi</label>
+                <input id="SoLuong" type="text" class='required' />
+            </div>
+            <div class="body-add-member">
+                <label>Mã giảng viên thứ 1</label>
+                <input id="MaGV1" type="text" class='required' />
+            </div>
+            <div class="body-add-member">
+                <label>Mã giảng viên thứ 2</label>
+                <input id="MaGV2" type="text" class='required' />
+            </div>
+            <div class="body-add-member">
+                <label>Thời gian thi</label>
+                <input id="Time" type="text" />
+            </div>
+            <div class="body-add-member">
+                <label>Vị trí</label>
+                <input id="Location" type="text" />
+            </div>
+            <div class="body-add-member">
+                <label>Hình thức</label>
+                <input id="Per" type="text" />
+            </div>
+        </div>
+        <div class="footer-add">
+            <button id="btnSave">Save</button>
+            <button id="btnCancle">Cancle</button>
+        </div>
+    </div>
+    <script src="../Scripts/jquery-3.4.1.min.js"></script>
+    <script src="../Scripts/jquery-3.4.1.js"></script>
+    <script src="../Scripts/GVLopthi.js"></script>
+</body>
+</html>

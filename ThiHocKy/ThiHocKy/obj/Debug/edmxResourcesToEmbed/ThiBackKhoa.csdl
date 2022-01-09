@@ -1,0 +1,264 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ThiHocKyDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="GiangVien">
+    <Key>
+      <PropertyRef Name="MSGiangVien" />
+    </Key>
+    <Property Name="MSGiangVien" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TenGV" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="KhoaVien" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="GiaoVienCoiThis" Relationship="Self.FK_GVCT1" FromRole="GiangVien" ToRole="GiaoVienCoiThi" />
+    <NavigationProperty Name="LopHocs" Relationship="Self.FK_LH1" FromRole="GiangVien" ToRole="LopHoc" />
+    <NavigationProperty Name="LopThis" Relationship="Self.FK_LT2" FromRole="GiangVien" ToRole="LopThi" />
+    <NavigationProperty Name="LopThis1" Relationship="Self.FK_LT3" FromRole="GiangVien" ToRole="LopThi" />
+  </EntityType>
+  <EntityType Name="GiaoVienCoiThi">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MaGV" Type="Int32" />
+    <Property Name="MaLT" Type="Int32" />
+    <NavigationProperty Name="GiangVien" Relationship="Self.FK_GVCT1" FromRole="GiaoVienCoiThi" ToRole="GiangVien" />
+    <NavigationProperty Name="LopThi" Relationship="Self.FK_GVCT" FromRole="GiaoVienCoiThi" ToRole="LopThi" />
+  </EntityType>
+  <EntityType Name="HocPhan">
+    <Key>
+      <PropertyRef Name="MaHP" />
+    </Key>
+    <Property Name="MaHP" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="TenHP" Type="String" MaxLength="30" FixedLength="true" Unicode="false" />
+    <Property Name="ThucHanh" Type="Boolean" />
+    <NavigationProperty Name="LopHocs" Relationship="Self.FK_LH2" FromRole="HocPhan" ToRole="LopHoc" />
+  </EntityType>
+  <EntityType Name="LopHoc">
+    <Key>
+      <PropertyRef Name="MaLH" />
+    </Key>
+    <Property Name="MaLH" Type="Int32" Nullable="false" />
+    <Property Name="TenLH" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="MSGiangVien" Type="Int32" />
+    <Property Name="MaHP" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+    <NavigationProperty Name="GiangVien" Relationship="Self.FK_LH1" FromRole="LopHoc" ToRole="GiangVien" />
+    <NavigationProperty Name="HocPhan" Relationship="Self.FK_LH2" FromRole="LopHoc" ToRole="HocPhan" />
+    <NavigationProperty Name="LopThis" Relationship="Self.FK_LT1" FromRole="LopHoc" ToRole="LopThi" />
+    <NavigationProperty Name="SinhVienLops" Relationship="Self.FK_SVL" FromRole="LopHoc" ToRole="SinhVienLop" />
+    <NavigationProperty Name="LopThis1" Relationship="Self.FK_SVL2" FromRole="LopHoc" ToRole="LopThi" />
+  </EntityType>
+  <EntityType Name="LopThi">
+    <Key>
+      <PropertyRef Name="MaLT" />
+    </Key>
+    <Property Name="MaLT" Type="Int32" Nullable="false" />
+    <Property Name="MaLH" Type="Int32" />
+    <Property Name="SoGV" Type="Int32" />
+    <Property Name="MSGiangVien1" Type="Int32" />
+    <Property Name="MSGiangVien2" Type="Int32" />
+    <Property Name="ThoiGian" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+    <Property Name="ViTri" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+    <Property Name="HinhThuc" Type="Boolean" />
+    <NavigationProperty Name="GiangVien" Relationship="Self.FK_LT2" FromRole="LopThi" ToRole="GiangVien" />
+    <NavigationProperty Name="GiangVien1" Relationship="Self.FK_LT3" FromRole="LopThi" ToRole="GiangVien" />
+    <NavigationProperty Name="GiaoVienCoiThis" Relationship="Self.FK_GVCT" FromRole="LopThi" ToRole="GiaoVienCoiThi" />
+    <NavigationProperty Name="LopHoc" Relationship="Self.FK_LT1" FromRole="LopThi" ToRole="LopHoc" />
+    <NavigationProperty Name="LopHoc1" Relationship="Self.FK_SVL2" FromRole="LopThi" ToRole="LopHoc" />
+  </EntityType>
+  <EntityType Name="SinhVien">
+    <Key>
+      <PropertyRef Name="MSSinhVien" />
+    </Key>
+    <Property Name="MSSinhVien" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TenSV" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="SinhVienLops" Relationship="Self.FK_SVL1" FromRole="SinhVien" ToRole="SinhVienLop" />
+  </EntityType>
+  <EntityType Name="SinhVienLop">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MaSV" Type="Int32" />
+    <Property Name="MaLH" Type="Int32" />
+    <NavigationProperty Name="LopHoc" Relationship="Self.FK_SVL" FromRole="SinhVienLop" ToRole="LopHoc" />
+    <NavigationProperty Name="SinhVien" Relationship="Self.FK_SVL1" FromRole="SinhVienLop" ToRole="SinhVien" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <Association Name="FK_GVCT1">
+    <End Role="GiangVien" Type="Self.GiangVien" Multiplicity="0..1" />
+    <End Role="GiaoVienCoiThi" Type="Self.GiaoVienCoiThi" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="GiangVien">
+        <PropertyRef Name="MSGiangVien" />
+      </Principal>
+      <Dependent Role="GiaoVienCoiThi">
+        <PropertyRef Name="MaGV" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LH1">
+    <End Role="GiangVien" Type="Self.GiangVien" Multiplicity="0..1" />
+    <End Role="LopHoc" Type="Self.LopHoc" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="GiangVien">
+        <PropertyRef Name="MSGiangVien" />
+      </Principal>
+      <Dependent Role="LopHoc">
+        <PropertyRef Name="MSGiangVien" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LT2">
+    <End Role="GiangVien" Type="Self.GiangVien" Multiplicity="0..1" />
+    <End Role="LopThi" Type="Self.LopThi" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="GiangVien">
+        <PropertyRef Name="MSGiangVien" />
+      </Principal>
+      <Dependent Role="LopThi">
+        <PropertyRef Name="MSGiangVien1" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LT3">
+    <End Role="GiangVien" Type="Self.GiangVien" Multiplicity="0..1" />
+    <End Role="LopThi" Type="Self.LopThi" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="GiangVien">
+        <PropertyRef Name="MSGiangVien" />
+      </Principal>
+      <Dependent Role="LopThi">
+        <PropertyRef Name="MSGiangVien2" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_GVCT">
+    <End Role="LopThi" Type="Self.LopThi" Multiplicity="0..1" />
+    <End Role="GiaoVienCoiThi" Type="Self.GiaoVienCoiThi" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LopThi">
+        <PropertyRef Name="MaLT" />
+      </Principal>
+      <Dependent Role="GiaoVienCoiThi">
+        <PropertyRef Name="MaLT" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LH2">
+    <End Role="HocPhan" Type="Self.HocPhan" Multiplicity="0..1" />
+    <End Role="LopHoc" Type="Self.LopHoc" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HocPhan">
+        <PropertyRef Name="MaHP" />
+      </Principal>
+      <Dependent Role="LopHoc">
+        <PropertyRef Name="MaHP" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LT1">
+    <End Role="LopHoc" Type="Self.LopHoc" Multiplicity="0..1" />
+    <End Role="LopThi" Type="Self.LopThi" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LopHoc">
+        <PropertyRef Name="MaLH" />
+      </Principal>
+      <Dependent Role="LopThi">
+        <PropertyRef Name="MaLH" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SVL">
+    <End Role="LopHoc" Type="Self.LopHoc" Multiplicity="0..1" />
+    <End Role="SinhVienLop" Type="Self.SinhVienLop" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LopHoc">
+        <PropertyRef Name="MaLH" />
+      </Principal>
+      <Dependent Role="SinhVienLop">
+        <PropertyRef Name="MaLH" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SVL2">
+    <End Role="LopHoc" Type="Self.LopHoc" Multiplicity="0..1" />
+    <End Role="LopThi" Type="Self.LopThi" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LopHoc">
+        <PropertyRef Name="MaLH" />
+      </Principal>
+      <Dependent Role="LopThi">
+        <PropertyRef Name="MaLH" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SVL1">
+    <End Role="SinhVien" Type="Self.SinhVien" Multiplicity="0..1" />
+    <End Role="SinhVienLop" Type="Self.SinhVienLop" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SinhVien">
+        <PropertyRef Name="MSSinhVien" />
+      </Principal>
+      <Dependent Role="SinhVienLop">
+        <PropertyRef Name="MaSV" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ThiHocKyDBEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="GiangViens" EntityType="Self.GiangVien" />
+    <EntitySet Name="GiaoVienCoiThis" EntityType="Self.GiaoVienCoiThi" />
+    <EntitySet Name="HocPhans" EntityType="Self.HocPhan" />
+    <EntitySet Name="LopHocs" EntityType="Self.LopHoc" />
+    <EntitySet Name="LopThis" EntityType="Self.LopThi" />
+    <EntitySet Name="SinhViens" EntityType="Self.SinhVien" />
+    <EntitySet Name="SinhVienLops" EntityType="Self.SinhVienLop" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+    <AssociationSet Name="FK_GVCT1" Association="Self.FK_GVCT1">
+      <End Role="GiangVien" EntitySet="GiangViens" />
+      <End Role="GiaoVienCoiThi" EntitySet="GiaoVienCoiThis" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LH1" Association="Self.FK_LH1">
+      <End Role="GiangVien" EntitySet="GiangViens" />
+      <End Role="LopHoc" EntitySet="LopHocs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LT2" Association="Self.FK_LT2">
+      <End Role="GiangVien" EntitySet="GiangViens" />
+      <End Role="LopThi" EntitySet="LopThis" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LT3" Association="Self.FK_LT3">
+      <End Role="GiangVien" EntitySet="GiangViens" />
+      <End Role="LopThi" EntitySet="LopThis" />
+    </AssociationSet>
+    <AssociationSet Name="FK_GVCT" Association="Self.FK_GVCT">
+      <End Role="LopThi" EntitySet="LopThis" />
+      <End Role="GiaoVienCoiThi" EntitySet="GiaoVienCoiThis" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LH2" Association="Self.FK_LH2">
+      <End Role="HocPhan" EntitySet="HocPhans" />
+      <End Role="LopHoc" EntitySet="LopHocs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LT1" Association="Self.FK_LT1">
+      <End Role="LopHoc" EntitySet="LopHocs" />
+      <End Role="LopThi" EntitySet="LopThis" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SVL" Association="Self.FK_SVL">
+      <End Role="LopHoc" EntitySet="LopHocs" />
+      <End Role="SinhVienLop" EntitySet="SinhVienLops" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SVL2" Association="Self.FK_SVL2">
+      <End Role="LopHoc" EntitySet="LopHocs" />
+      <End Role="LopThi" EntitySet="LopThis" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SVL1" Association="Self.FK_SVL1">
+      <End Role="SinhVien" EntitySet="SinhViens" />
+      <End Role="SinhVienLop" EntitySet="SinhVienLops" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

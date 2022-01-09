@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ThiHocKyDBModelStoreContainer" CdmEntityContainer="ThiHocKyDBEntities">
+    <EntitySetMapping Name="GiangViens">
+      <EntityTypeMapping TypeName="ThiHocKyDBModel.GiangVien">
+        <MappingFragment StoreEntitySet="GiangVien">
+          <ScalarProperty Name="MSGiangVien" ColumnName="MSGiangVien" />
+          <ScalarProperty Name="TenGV" ColumnName="TenGV" />
+          <ScalarProperty Name="KhoaVien" ColumnName="KhoaVien" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GiaoVienCoiThis">
+      <EntityTypeMapping TypeName="ThiHocKyDBModel.GiaoVienCoiThi">
+        <MappingFragment StoreEntitySet="GiaoVienCoiThi">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="MaGV" ColumnName="MaGV" />
+          <ScalarProperty Name="MaLT" ColumnName="MaLT" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HocPhans">
+      <EntityTypeMapping TypeName="ThiHocKyDBModel.HocPhan">
+        <MappingFragment StoreEntitySet="HocPhan">
+          <ScalarProperty Name="MaHP" ColumnName="MaHP" />
+          <ScalarProperty Name="TenHP" ColumnName="TenHP" />
+          <ScalarProperty Name="ThucHanh" ColumnName="ThucHanh" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LopHocs">
+      <EntityTypeMapping TypeName="ThiHocKyDBModel.LopHoc">
+        <MappingFragment StoreEntitySet="LopHoc">
+          <ScalarProperty Name="MaLH" ColumnName="MaLH" />
+          <ScalarProperty Name="TenLH" ColumnName="TenLH" />
+          <ScalarProperty Name="MSGiangVien" ColumnName="MSGiangVien" />
+          <ScalarProperty Name="MaHP" ColumnName="MaHP" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LopThis">
+      <EntityTypeMapping TypeName="ThiHocKyDBModel.LopThi">
+        <MappingFragment StoreEntitySet="LopThi">
+          <ScalarProperty Name="MaLT" ColumnName="MaLT" />
+          <ScalarProperty Name="MaLH" ColumnName="MaLH" />
+          <ScalarProperty Name="SoGV" ColumnName="SoGV" />
+          <ScalarProperty Name="MSGiangVien1" ColumnName="MSGiangVien1" />
+          <ScalarProperty Name="MSGiangVien2" ColumnName="MSGiangVien2" />
+          <ScalarProperty Name="ThoiGian" ColumnName="ThoiGian" />
+          <ScalarProperty Name="ViTri" ColumnName="ViTri" />
+          <ScalarProperty Name="HinhThuc" ColumnName="HinhThuc" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SinhViens">
+      <EntityTypeMapping TypeName="ThiHocKyDBModel.SinhVien">
+        <MappingFragment StoreEntitySet="SinhVien">
+          <ScalarProperty Name="MSSinhVien" ColumnName="MSSinhVien" />
+          <ScalarProperty Name="TenSV" ColumnName="TenSV" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SinhVienLops">
+      <EntityTypeMapping TypeName="ThiHocKyDBModel.SinhVienLop">
+        <MappingFragment StoreEntitySet="SinhVienLop">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="MaSV" ColumnName="MaSV" />
+          <ScalarProperty Name="MaLH" ColumnName="MaLH" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="ThiHocKyDBModel.sysdiagram">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
